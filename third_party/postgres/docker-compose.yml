@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+  ggs-db:
+    image: postgres
+    container_name: ggs-db
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgres/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: GormGinSwagger
+    command: -p 5432
+
+volumes:
+  db:

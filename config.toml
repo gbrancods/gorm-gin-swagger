@@ -1,0 +1,12 @@
+[api]
+port = "9002"
+
+[swagger]
+port = "8002"
+
+[database]
+port = "5432"
+host = "192.168.1.121"
+user = "postgres"
+pass = "GormGinSwagger"
+name = "postgres"

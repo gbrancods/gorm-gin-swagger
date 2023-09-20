@@ -1,0 +1,12 @@
+version: '3.6'
+
+services:
+  ggs:
+    image: ggs
+    container_name: ggs
+    #environment:
+      #GIN_MODE: release
+    restart: always
+    ports:
+      - 9002:9002
+      - 8002:8002

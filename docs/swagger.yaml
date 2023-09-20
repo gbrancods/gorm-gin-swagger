@@ -1,0 +1,128 @@
+definitions:
+  todo.Todo:
+    properties:
+      description:
+        maxLength: 5000
+        type: string
+      done:
+        type: boolean
+      id:
+        type: integer
+      title:
+        maxLength: 100
+        type: string
+    type: object
+  todo.TodoCreate:
+    properties:
+      description:
+        maxLength: 5000
+        type: string
+      done:
+        type: boolean
+      title:
+        maxLength: 100
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /todo/:
+    get:
+      description: Todo GET
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/todo.Todo'
+            type: array
+      summary: Return all todos
+      tags:
+      - todo
+    post:
+      consumes:
+      - application/json
+      description: Todo POST
+      parameters:
+      - description: TodoCreate
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/todo.TodoCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/todo.Todo'
+      summary: Create a todo
+      tags:
+      - todo
+  /todo/{id}/:
+    delete:
+      description: Todo DELETE
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/todo.Todo'
+      summary: Delete a todo
+      tags:
+      - todo
+    get:
+      description: Todo GET
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/todo.Todo'
+      summary: Return a todo by ID
+      tags:
+      - todo
+    post:
+      consumes:
+      - application/json
+      description: Todo PUT
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: TodoCreate
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/todo.TodoCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/todo.Todo'
+      summary: Edit a todo
+      tags:
+      - todo
+swagger: "2.0"
