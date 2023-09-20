@@ -1,0 +1,1 @@
+This is copied inside container to generate logs, consider create a volume for this.
