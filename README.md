@@ -1,7 +1,7 @@
 ```mermaid
 erDiagram
     
-    TODO {
+    todos {
         int id PK
         string(100) title
         string(5000) description
